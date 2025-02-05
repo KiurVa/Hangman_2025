@@ -1,0 +1,1 @@
+name;word;letters;game lenght;game time
