@@ -211,7 +211,7 @@ class View(Tk):
             row_values = self.my_table.item(selected_item, 'values')
             #Näita popup akent infoga
             messagebox.showinfo('Informatsioon',
-                                message=f'Nimi: {row_values[0]}\nSõna: {row_values[1]}\nVigased tähed: {row_values[2]}\n'
+                                message=f'TNimi: {row_values[0]}\nSõna: {row_values[1]}\nVigased tähed: {row_values[2]}\n'
                                         f'Mängu pikkus: {row_values[3]}\nMängu aeg: {row_values[4]}', parent=self.my_table)
 
 
