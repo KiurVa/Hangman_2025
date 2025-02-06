@@ -1,1 +1,23 @@
 name;word;letters;game lenght;game time
+Kauri;kasvuhoone;;12;2025-02-06 14:28:13
+kauri1;bussijuht;W, A;13;2025-02-06 14:28:31
+Teadmata;suvila;M, H, T, B, E, H, F, B, H, F;22;2025-02-06 14:36:48
+Tundmatu;kasvuhoone;R;14;2025-02-06 14:37:29
+Tundmatu;suvila;;12;2025-02-06 14:39:59
+Teadmata;suvila;;12;2025-02-06 14:40:02
+Unknown;suvila;;12;2025-02-06 14:40:04
+Tundmatu;suvila;;12;2025-02-06 14:40:06
+kauriii;suvila;;7;2025-02-06 14:44:04
+Unknown;suvila;;7;2025-02-06 14:44:08
+kauri;bussijuht;A;10;2025-02-06 15:05:35
+Teadmata;lasteaiakasvataja;;11;2025-02-06 15:06:15
+kauri;bussijuht;;8;2025-02-06 15:08:44
+Teadmata;kasvuhoone;D;12;2025-02-06 15:09:00
+kkkaaaa;suvila;;22;2025-02-06 15:32:23
+kiiirr;suvila;;25;2025-02-06 15:55:48
+igav;kasvuhoone;Y, D, D, R, T, Y, I, Ö, 2, 3, ';21;2025-02-06 17:13:36
+kiire;bussijuht;;6;2025-02-06 17:25:48
+proov_aeg;suvila;;7;2025-02-06 17:26:17
+lapsed;lasteaiakasvataja;;10;2025-02-06 17:26:51
+Tundmatu;suvila;;4;2025-02-06 17:27:14
+fgddfdd;bussijuht;., A, E, F, F, D, F, F, F, F, D;19;2025-02-06 17:27:49

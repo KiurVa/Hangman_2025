@@ -1,5 +1,6 @@
 import sys
 
+from controllers.Controller import Controller
 from models.Model import Model
 from views.View import View
 
@@ -7,7 +8,7 @@ if __name__ == "__main__":
     try:
         model =  Model()
         view = View(model) #Loo view andes kaasa model
-
+        Controller(model, view)
         view.mainloop() #Viimane rida koodis
     except FileNotFoundError as e:
         #print(f'Viga: {e}')
