@@ -21,3 +21,5 @@ proov_aeg;suvila;;7;2025-02-06 17:26:17
 lapsed;lasteaiakasvataja;;10;2025-02-06 17:26:51
 Tundmatu;suvila;;4;2025-02-06 17:27:14
 fgddfdd;bussijuht;., A, E, F, F, D, F, F, F, F, D;19;2025-02-06 17:27:49
+Kauri_kodus;lasteaiakasvataja;;19;2025-02-20 16:10:47
+Proov2_kodus;suvila;F;15;2025-02-20 16:14:45
