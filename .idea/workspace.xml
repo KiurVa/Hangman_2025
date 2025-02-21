@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d097af-6d1d-49fd-8fd9-ec5585fe4c7b" name="Changes" comment="Database, tables checks">
+    <list default="true" id="c4d097af-6d1d-49fd-8fd9-ec5585fe4c7b" name="Changes" comment="Leaderboard missing saving">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/databases/hangman_2025.db" beforeDir="false" afterPath="$PROJECT_DIR$/databases/hangman_2025.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/View.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/View.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +127,7 @@
       <workItem from="1738825358084" duration="7557000" />
       <workItem from="1740060461720" duration="1209000" />
       <workItem from="1740083729941" duration="854000" />
-      <workItem from="1740129661781" duration="13954000" />
+      <workItem from="1740129661781" duration="18965000" />
     </task>
     <task id="LOCAL-00001" summary="05.02.2025">
       <option name="closed" value="true" />
@@ -148,7 +151,14 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1740139349157</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Leaderboard missing saving">
+      <option name="closed" value="true" />
+      <created>1740169640567</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1740169640567</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,10 +168,11 @@
     <MESSAGE value="05.02.2025" />
     <MESSAGE value="TEST" />
     <MESSAGE value="Database, tables checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database, tables checks" />
+    <MESSAGE value="Leaderboard missing saving" />
+    <option name="LAST_COMMIT_MESSAGE" value="Leaderboard missing saving" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Hangman_2025$Database.coverage" NAME="Database Coverage Results" MODIFIED="1740133776030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
-    <SUITE FILE_PATH="coverage/Hangman_2025$app.coverage" NAME="app Coverage Results" MODIFIED="1740169121829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Hangman_2025$app.coverage" NAME="app Coverage Results" MODIFIED="1740173755900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

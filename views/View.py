@@ -197,10 +197,10 @@ class View(Tk):
             #Lisa andmed tabelisse
             x = 0
             for score in data:
-                dt = datetime.strptime(score.game_time, '%Y-%m-%d %H:%M:%S').strftime('%d.%m.%Y %T')
-                sec = time.strftime('%H:%M:%S', time.gmtime(int(score.game_length)))
+                dt = datetime.strptime(score[5], '%Y-%m-%d %H:%M:%S').strftime('%d.%m.%Y %T')
+                sec = time.strftime('%H:%M:%S', time.gmtime(int(score[4])))
                 self.my_table.insert(parent='', index='end', iid=str(x), text='',
-                                     values=(score.name, score.word, score.letters, sec, dt))
+                                     values=(score[1], score[2], score[3], sec, dt))
                 x += 1
             self.my_table.pack(fill=BOTH, expand=True)
 

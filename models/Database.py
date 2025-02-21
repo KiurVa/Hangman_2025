@@ -1,6 +1,9 @@
 import os
 import sqlite3
-from logging import fatal
+from datetime import datetime
+from random import random
+
+from views.View import View
 
 
 class Database:
@@ -11,7 +14,7 @@ class Database:
         self.cursor = None
         self.connect()
         self.check_tables()
-        self.read_leaderboard()
+        #self.read_leaderboard()
 
 
     def connect(self):
@@ -73,8 +76,18 @@ class Database:
     def read_leaderboard(self):
         self.cursor.execute('SELECT * FROM leaderboard;')
         data = self.cursor.fetchall()
-        if not data:
-            raise ValueError('Edetabel on tühi.')
+        return data
+
+    def save_player_score(self, name, word, letters, game_length):
+        game_time = datetime.now().strftime('%Y-%m-%d %T')
+        if not name.strip():
+            name = random.choice(['Teadmata', 'Tundmatu', 'Unknown'])
+        self.cursor.execute("""
+        INSERT INTO leaderboard (name, word, letters, game_length, game_time)
+        VALUES (?, ?, ?, ?, ?);
+        """, (name.strip(), word, letters, game_length, game_time))
+        self.conn.commit()
+
 
 
     def close_connection(self):

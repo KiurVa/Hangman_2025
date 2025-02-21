@@ -2,9 +2,11 @@ import random
 from tkinter import simpledialog, messagebox
 from tkinter.constants import DISABLED, NORMAL
 
+from models.Database import Database
 from models.Leaderboard import Leaderboard
 from models.Stopwatch import Stopwatch
 from models.Timer import Timer
+from views.View import View
 
 
 class Controller:
@@ -94,10 +96,12 @@ class Controller:
         self.is_game_over() #Kontrollib kas mmäng on läbi
 
     def btn_scoreboard_click(self):
-        lb = Leaderboard()
-        data = lb.read_leaderboard()
-        popup_window = self.view.create_popup_window()
-        self.view.generate_scoreboard(popup_window, data)
+        data = self.model.read_leaderboard()
+        if not data:
+            View.show_message('Edetabel on tühi')
+        else:
+            popup_window = self.view.create_popup_window()
+            self.view.generate_scoreboard(popup_window, data)
 
     def is_game_over(self): #Mängu lõpetamise ülesanded
         if self.model.counter >= 11 or '_' not in self.model.user_word:

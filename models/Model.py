@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 import random
 
+from models.Database import Database
 from models.FileObject import FileObject
 from models.Leaderboard import Leaderboard
 
@@ -11,10 +12,10 @@ class Model:
     def __init__(self):
         self.__images_files = [] #Tühi list piltide jaoks
         self.load_image('images')
-        self.__file_object = FileObject('databases', 'words.txt')
+        self.__file_object = Database()
         self.__categories = self.__file_object.get_unique_categories() #Unikaalsed kategooriad
         #print(self.__file_object.get_random_word(None)) #Kontroll, et tagastab suvalisi sõnu
-        self.__scoreboard = Leaderboard() #loob edetabli objekti
+        self.__scoreboard = Database() #loob edetabli objekti
         self.titles = ['Poomismäng 2025', 'Kas jäid magama', 'Ma ootan su käiku', 'Sisesta juba see täht',
                        'Sisesta juba see täht', 'Zzzzzz.....']
 
@@ -75,13 +76,17 @@ class Model:
     def get_all_user_chars(self):
         return ', '.join(self.__all_user_chars) #List tehakse komaga eraldatud stringiks
 
+    def read_leaderboard(self):
+        return self.__file_object.read_leaderboard()
+
     def save_player_score(self, name, seconds):
-        today = datetime.now().strftime('%Y-%m-%d %T')
+        self.__scoreboard.save_player_score(name, self.__new_word, self.get_all_user_chars(), seconds)
+        """today = datetime.now().strftime('%Y-%m-%d %T')
         if not name.strip():
             name = random.choice(['Teadmata', 'Tundmatu', 'Unknown'])
         with open(self.__scoreboard.file_path, 'a', encoding='utf-8') as f:
             line = ';'.join([name.strip(), self.__new_word, self.get_all_user_chars(), str(seconds), today])
-            f.write(line + '\n')
+            f.write(line + '\n')"""
 
     #GETTERS
     @property
