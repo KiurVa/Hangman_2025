@@ -96,6 +96,7 @@ class Controller:
         self.is_game_over() #Kontrollib kas mmäng on läbi
 
     def btn_scoreboard_click(self):
+        """Edetabeli nupu toimime, kui edetabel tühi ja kui data on olemas"""
         data = self.model.read_leaderboard()
         if not data:
             View.show_message('Edetabel on tühi')

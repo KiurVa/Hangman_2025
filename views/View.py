@@ -50,6 +50,9 @@ class View(Tk):
         self.bind('<Key>', self.reset_timer)
         self.timer_reset_callback = None
 
+        #Akna sulgemise protokoll, et sulgeda andmebaasi ühendused
+        self.protocol("WM_DELETE_WINDOW", self.on_closing)
+
 
     @staticmethod
     def center(win, width, height): #Arvutab ekraani suuruse põhjal keskele akna
@@ -214,6 +217,11 @@ class View(Tk):
                                 message=f'Nimi: {row_values[0]}\nSõna: {row_values[1]}\nVigased tähed: {row_values[2]}\n'
                                         f'Mängu pikkus: {row_values[3]}\nMängu aeg: {row_values[4]}', parent=self.my_table)
 
+    def on_closing(self):
+        """Sulgeb kõik andmebaasi ühendused ja sulgeb akna korralikult"""
+        self.model.close_connection()
+        self.quit()
+        self.destroy()
 
     #Getters
 

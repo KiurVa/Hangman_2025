@@ -9,13 +9,14 @@ from models.Leaderboard import Leaderboard
 
 
 class Model:
-    def __init__(self):
+    def __init__(self, db):
         self.__images_files = [] #Tühi list piltide jaoks
         self.load_image('images')
-        self.__file_object = Database()
-        self.__categories = self.__file_object.get_unique_categories() #Unikaalsed kategooriad
+        #self.__file_object = FileObject()
+        self.__database = db
+        self.__categories = self.__database.get_unique_categories() #Unikaalsed kategooriad
         #print(self.__file_object.get_random_word(None)) #Kontroll, et tagastab suvalisi sõnu
-        self.__scoreboard = Database() #loob edetabli objekti
+        #self.__scoreboard = Leaderboard() #loob edetabli objekti
         self.titles = ['Poomismäng 2025', 'Kas jäid magama', 'Ma ootan su käiku', 'Sisesta juba see täht',
                        'Sisesta juba see täht', 'Zzzzzz.....']
 
@@ -36,7 +37,7 @@ class Model:
     def start_new_game(self, category_id, category):
         if category_id == 0:
             category = None
-        self.__new_word = self.__file_object.get_random_word(category) #Juhuslik sõna
+        self.__new_word = self.__database.get_random_word(category) #Juhuslik sõna
         self.__user_word = [] #Algseis
         self.__counter = 0 #Algseis
         self.__all_user_chars = [] #Algseis
@@ -77,16 +78,22 @@ class Model:
         return ', '.join(self.__all_user_chars) #List tehakse komaga eraldatud stringiks
 
     def read_leaderboard(self):
-        return self.__file_object.read_leaderboard()
+        """kasutab Database read_leaderboardi ja saaks seda välja kutsuda Controlleris"""
+        return self.__database.read_leaderboard()
 
     def save_player_score(self, name, seconds):
-        self.__scoreboard.save_player_score(name, self.__new_word, self.get_all_user_chars(), seconds)
+        """Salvestab skoori kasutades Database save_player_score"""
+        self.__database.save_player_score(name, self.__new_word, self.get_all_user_chars(), seconds)
         """today = datetime.now().strftime('%Y-%m-%d %T')
         if not name.strip():
             name = random.choice(['Teadmata', 'Tundmatu', 'Unknown'])
         with open(self.__scoreboard.file_path, 'a', encoding='utf-8') as f:
             line = ';'.join([name.strip(), self.__new_word, self.get_all_user_chars(), str(seconds), today])
             f.write(line + '\n')"""
+
+    def close_connection(self):
+        self.__database.close_connection()
+
 
     #GETTERS
     @property

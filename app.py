@@ -8,7 +8,7 @@ from views.View import View
 if __name__ == "__main__":
     try:
         db = Database()
-        model =  Model()
+        model =  Model(db) #Loob modeli andes kaasa db
         view = View(model) #Loo view andes kaasa model
         Controller(model, view)
         view.mainloop() #Viimane rida koodis
