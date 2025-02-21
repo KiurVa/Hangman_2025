@@ -1,11 +1,13 @@
 import sys
 
 from controllers.Controller import Controller
+from models.Database import Database
 from models.Model import Model
 from views.View import View
 
 if __name__ == "__main__":
     try:
+        db = Database()
         model =  Model()
         view = View(model) #Loo view andes kaasa model
         Controller(model, view)
