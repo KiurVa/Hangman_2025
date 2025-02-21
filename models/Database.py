@@ -1,5 +1,6 @@
 import os
 import sqlite3
+from logging import fatal
 
 
 class Database:
@@ -10,6 +11,7 @@ class Database:
         self.cursor = None
         self.connect()
         self.check_tables()
+        self.read_leaderboard()
 
 
     def connect(self):
@@ -27,6 +29,10 @@ class Database:
         if not self.cursor.fetchone():
             raise FileNotFoundError('Tabel words puudub. Rakendus ei käivitu.')
 
+        self.cursor.execute('SELECT * FROM words;')
+        if not self.cursor.fetchone():
+            raise ValueError('Tabel words on tühi. Rakendus ei käivitu.')
+
         self.cursor.execute('SELECT name FROM sqlite_master WHERE type="table" AND name="leaderboard";')
         if not self.cursor.fetchone():
             self.create_leaderboard_table()
@@ -35,17 +41,40 @@ class Database:
         leaderboard = """
         CREATE TABLE leaderboard (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            word TEXT,
-            letters TEXT,
-            game_length INTEGER,
-            game_time TEXT
+            name TEXT, NOT NULL,
+            word TEXT NOT NULL,
+            letters TEXT NOT NULL,
+            game_length INTEGER NOT NULL,
+            game_time TEXT NOT NULL,
         );
         """
         self.cursor.execute(leaderboard)
         self.conn.commit()
         print('Tabel leaderboard on loodud.')
 
+    def get_unique_categories(self):
+        self.cursor.execute('SELECT DISTINCT category FROM words;')
+        categories = [row[0] for row in self.cursor.fetchall()]
+        categories.sort()
+        categories.insert(0, 'Vali kategooria')
+        return [category.capitalize() for category in categories]
+
+    def get_random_word(self, category):
+        if category is None:
+            self.cursor.execute('SELECT word FROM words order by RANDOM() LIMIT 1;')
+            word = self.cursor.fetchone()[0]
+            return word
+        else:
+            category = category.lower()
+            self.cursor.execute('SELECT word FROM words Where category=? ORDER BY RANDOM() LIMIT 1;', (category,))
+            word = self.cursor.fetchone()[0]
+            return word
+
+    def read_leaderboard(self):
+        self.cursor.execute('SELECT * FROM leaderboard;')
+        data = self.cursor.fetchall()
+        if not data:
+            raise ValueError('Edetabel on tühi.')
 
 
     def close_connection(self):
